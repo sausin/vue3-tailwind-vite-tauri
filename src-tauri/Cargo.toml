@@ -1,0 +1,8 @@
+[package]
+name = "vue3_tailwind_vite_tauri_app"
+version = "0.1.0"
+authors = ["Your Name <you@example.com>"]
+edition = "2021"
+
+[dependencies]
+tauri = { version = "1.2", features = ["api-all"] }
