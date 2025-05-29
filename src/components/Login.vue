@@ -53,19 +53,29 @@
       <!-- Terms and Conditions -->
       <p class="mt-8 text-xs text-gray-600 text-center">
         By continuing, you agree to our
-        <a href="#" class="underline hover:text-black">Terms & Conditions</a>.
+        <button 
+          @click="showTermsModal = true" 
+          class="underline hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+        >
+          Terms & Conditions
+        </button>.
       </p>
     </div>
+
+    <!-- Terms Modal -->
+    <TermsModal v-if="showTermsModal" @close="showTermsModal = false" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import TermsModal from './TermsModal.vue';
 
 const phoneNumber = ref('');
 const otp = ref('');
 const otpSent = ref(false);
 const isPhoneValid = ref(false);
+const showTermsModal = ref(false);
 
 function validatePhone() {
   // Basic phone number validation: length and digits only
